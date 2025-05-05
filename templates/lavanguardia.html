@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Secció: {{ section }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="/">Inici</a>
+    <a href="/lavanguardia/economia">Economia</a>
+    <a href="/lavanguardia/politica">Política</a>
+    <a href="/lavanguardia/deportes">Esports</a>
+    <a href="/lavanguardia/cultura">Cultura</a>
+    <a href="/lavanguardia/internacional">Internacional</a>
+  </nav>
+
+  <section class="grid-container">
+    {% if feed.channel.image %}
+      <div class="news-card">
+        <img src="{{ feed.channel.image.href }}" alt="Channel logo" width="100">
+        <p><a href="{{ feed.channel.link }}">{{ feed.channel.title }}</a></p>
+      </div>
+    {% endif %}
+
+    {% for item in feed.entries %}
+      <div class="news-card">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+        <p class="meta">Publicat: {{ item.published }}</p>
+        {% if item.updated %}
+          <p class="meta">Actualitzat: {{ item.updated }}</p>
+        {% endif %}
+        {% if item.author %}
+          <p class="meta">Autor: {{ item.author }}</p>
+        {% endif %}
+        {% if item.category %}
+          <p class="meta">Categoria: {{ item.category }}</p>
+        {% endif %}
+        <a href="{{ item.link }}">Llegeix més</a>
+      </div>
+    {% endfor %}
+  </section>
+</body>
+</html>

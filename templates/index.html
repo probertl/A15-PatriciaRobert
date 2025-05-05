@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lectura RSS Centralitzada</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="/">Inici</a>
+    <a href="/lavanguardia/economia">Economia</a>
+    <a href="/lavanguardia/politica">Política</a>
+    <a href="/lavanguardia/deportes">Esports</a>
+    <a href="/lavanguardia/cultura">Cultura</a>
+    <a href="/lavanguardia/internacional">Internacional</a>
+  </nav>
+
+  <div class="carousel">
+    <div class="slides">
+      <img src="{{ url_for('static', filename='img/diaris.jpg') }}" alt="Notícies 1">
+      <img src="{{ url_for('static', filename='img/gat.jpg') }}" alt="Notícies 2">
+      <img src="{{ url_for('static', filename='img/diaris.jpg') }}" alt="Notícies 3">
+    </div>
+  </div>
+</body>
+</html>
